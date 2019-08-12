@@ -4,7 +4,9 @@ Rails.application.routes.draw do
 
   post '/login', to: "sessions#create"
 
-  root 'users#new'
+  get '/signup', to: "users#new"
+
+  root 'sessions#new'
 
   resources :users, only: [:new, :create, :show]
 
