@@ -1,8 +1,24 @@
 <h1><%= @user.name %></h1>
 
 <% @user.created_events.each do |event| %>
-    <h3><%= event.description %> <%= "---Event Creator: #{@user.name}" %></h3
+    <h3><%= event.description %> <%= "---Event Creator: #{@user.name}" %></h3>
     <h5><%= event.date %></h5>
-    <%end%>
+<%end%>
 <br>
 <span><b><%= link_to 'Create Event', new_event_path %> </b></span>
+
+<h2>Attended Events</h2>
+<hr>
+<h3>Future events</h3>
+<% @upcoming_events.each do |event| %>
+    <h3>Description: <%= event.description %> </h3>
+    <h5>Date: <%= event.date %></h5>
+    <hr>
+<%end%>
+<hr>
+<h3>Past events</h3>
+<% @attended_events.each do |event| %>
+    <h3>Description: <%= event.description %> </h3>
+    <h5>Date: <%= event.date %></h5>
+    <hr>
+<%end%>

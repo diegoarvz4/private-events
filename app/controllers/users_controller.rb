@@ -20,6 +20,13 @@ class UsersController < ApplicationController
 
   def show
     @user = User.find_by(id: params[:id])
+
+    @upcoming_events = @user.events_dates[0]
+
+    @attended_events = @user.events_dates[1]
+
+
+    
   end
 
   private 
