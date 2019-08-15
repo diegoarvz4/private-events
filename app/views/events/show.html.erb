@@ -1,4 +1,12 @@
 
-<h3><%= @event.description %> <%= "---Event Creator: #{@event.creator.name}" %></h3
+<h3><%= @event.description %> <%= "---Event Creator: #{@event.creator.name}" %></h3>
 
+<h1>Attendees</h1>
+<ul>
+<% @attendees.each do |attendee| %>
+
+    <li><%= attendee.name %></li>
+
+<%end%>
+</ul>
 <span><b><%= link_to 'Add Event', new_event_path %> </b></span>
