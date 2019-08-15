@@ -6,6 +6,9 @@ class EventsController < ApplicationController
 
   def index
     @events = Event.all
+    events_separated = Event.events_dates(@events)
+    @upcoming_events = events_separated[0]
+    @attended_events = events_separated[1]
   end
 
   def show
