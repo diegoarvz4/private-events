@@ -27,6 +27,12 @@ class UsersController < ApplicationController
 
   end
 
+  def attend 
+    @user = current_user
+    @user.events_attended << [Event.find_by(id: params[:user][:event_id].to_i)]
+    redirect_to current_user
+  end 
+
   private 
 
     def user_params
