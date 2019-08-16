@@ -12,7 +12,11 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
-    @attendees = @event.attendees
+    if @event
+       @attendees = @event.attendees
+    else
+      render text: 'Welcome, no event available'
+    end
   end
 
   def create

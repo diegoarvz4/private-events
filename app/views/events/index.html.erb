@@ -8,12 +8,15 @@
     <hr>
     <h3>Future events</h3>
     <% @upcoming_events.each do |event| %>
-        <h3><%= event.description %> </h3>
-        <h5>Date: <%= event.date %></h5>
+       <h3> <%= link_to event.description, event %></h3>
+            <h5>Date: <%= event.date %></h5>
+
         <% if current_user %>
             <%= form_for(:user, url: user_attend_path) do |f| %>
                 <%= f.hidden_field :event_id, :value => event.id %>
-                <%= f.submit "Attend", class: "btn btn-primary" %>
+              <% if !event.attendees.include?(current_user) %>
+                  <%= f.submit "Attend", class: "btn btn-primary" %>
+                  <%end%>
             <% end %>
             
         <% end %>
@@ -22,7 +25,7 @@
     <hr>
     <h3>Past events</h3>
     <% @attended_events.each do |event| %>
-        <h3><%= event.description %> </h3>
+        <h3> <%= link_to event.description, event %></h3>
         <h5>Date: <%= event.date %></h5>
         <hr>
     <%end%>
