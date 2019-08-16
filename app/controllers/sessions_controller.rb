@@ -9,7 +9,14 @@ class SessionsController < ApplicationController
       login @user
       redirect_to @user
     else
-      redirect_to 'new'
+      render 'new'
     end
   end
+
+  def destroy
+
+    logout(current_user)
+    redirect_to login_path
+
+  end 
 end

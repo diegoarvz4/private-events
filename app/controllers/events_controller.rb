@@ -12,14 +12,18 @@ class EventsController < ApplicationController
 
   def show
     @event = Event.find_by(id: params[:id])
-    @attendees = @event.attendees
+    if @event
+       @attendees = @event.attendees
+    else
+      render text: 'Welcome, no event available'
+    end
   end
 
   def create
     current_user
     @event = current_user.created_events.build(event_params)
     if @event.save
-      render 'show'
+      redirect_to @event.creator
     else
       redirect_to 'new'
     end

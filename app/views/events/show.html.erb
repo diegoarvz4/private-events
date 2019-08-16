@@ -1,12 +1,21 @@
 
-<h3><%= @event.description %> <%= "---Event Creator: #{@event.creator.name}" %></h3>
+<div class="container">
+       <% if !@attendees.nil? && !@event.nil? %>
+         <h3><%= @event.description %> <%= "---Event Creator: #{@event.creator.name}" %></h3>
 
-<h1>Attendees</h1>
-<ul>
-<% @attendees.each do |attendee| %>
+        <h1>Attendees</h1>
+          <ul>
+    
+         <% @attendees.each do |attendee| %>
 
-    <li><%= attendee.name %></li>
+           <li><%= attendee.name %></li>
+     
+         <%end%>
+         </ul>
+         <% else %>
+            <p> No attendees available </p>
+    <%end%>
+   
+    <span><b><%= link_to 'Add Event', new_event_path %> </b></span>
+</div>
 
-<%end%>
-</ul>
-<span><b><%= link_to 'Add Event', new_event_path %> </b></span>
