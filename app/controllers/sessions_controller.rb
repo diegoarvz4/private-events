@@ -9,7 +9,7 @@ class SessionsController < ApplicationController
       login @user
       redirect_to @user
     else
-      redirect_to 'new'
+      render 'new'
     end
   end
 end
