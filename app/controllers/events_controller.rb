@@ -19,7 +19,7 @@ class EventsController < ApplicationController
     current_user
     @event = current_user.created_events.build(event_params)
     if @event.save
-      render 'show'
+      redirect_to @event.creator
     else
       redirect_to 'new'
     end
