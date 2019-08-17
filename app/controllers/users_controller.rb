@@ -7,12 +7,12 @@ class UsersController < ApplicationController
 
     @user = User.new(name: params[:user][:name], password: params[:user][:password])
     if @user.save
-
+      login @user  
       redirect_to @user
 
     else 
 
-      render 'new'
+      redirect_to signup_path
 
     end 
 

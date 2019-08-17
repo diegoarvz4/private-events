@@ -15,10 +15,7 @@
  *= require_self
 
  */
- @import "bootstrap-sprockets";
- @import "variables";
- @import "bootstrap-custom";
-
+ 
 .container{
     margin-top: 90px !important;
 }

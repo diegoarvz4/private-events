@@ -8,7 +8,7 @@
     <div class='col-md-4 offset-md-4'>
     <h1>Log in</h1>
         <%= form_for(:session, url: login_path) do |f|%>
-            
+            <%= f.label :name %>
             <%= f.text_field :name, placeholder: 'Enter Username', class: 'form-control' %><br>
             <%= f.submit 'Submit', class: 'btn btn-info btn-block' %>
         <% end %>
