@@ -38,7 +38,7 @@ $ rails db:migrate
 Run the test suite to verify that everything is working correctly:
 
 ```
-$ rails test
+$ rspec
 ```
 
 Run the server
