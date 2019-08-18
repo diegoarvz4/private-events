@@ -1,0 +1,33 @@
+
+<div class="container">
+
+    <h1><%= @user.name %></h1>
+
+    <h2>Created Events</h2>
+    <span><b><%= link_to 'Create Event', new_event_path %> </b></span>
+    <hr>
+    <% @user.created_events.each do |event| %>
+        <h3> <%= link_to event.description, event %></h3>
+        <h5><%= event.date %></h5>
+    <%end%>
+    <br>
+
+
+    <h2>Attended Events</h2>
+    <hr>
+    <h3>Future events</h3>
+    <% @upcoming_events.each do |event| %>
+        <h3> <%= link_to event.description, event %></h3>
+        <h5>Date: <%= event.date %></h5>
+        <hr>
+    <%end%>
+    <hr>
+    <h3>Past events</h3>
+    <% @attended_events.each do |event| %>
+        <h3> <%= link_to event.description, event %></h3>
+        <h5>Date: <%= event.date %></h5>
+        <hr>
+    <%end%>
+
+</div>
+

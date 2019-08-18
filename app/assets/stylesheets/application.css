@@ -11,5 +11,19 @@
  * It is generally better to create a new file per style scope.
  *
  *= require_tree .
+
  *= require_self
+
  */
+ body{
+     height:100vh !important;
+ }
+.container{
+    margin-top: 90px !important;
+   
+}
+
+.sign-forms{
+    padding: 80px 0;
+    margin-bottom: 7%;
+}
